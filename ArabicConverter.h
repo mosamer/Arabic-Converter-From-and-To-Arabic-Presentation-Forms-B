@@ -10,6 +10,7 @@
 
 @interface ArabicConverter : NSObject
 
++ (ArabicConverter *)sharedConverter;
 
 -(NSString*)convertArabic:(NSString*)normal;
 -(NSString*)convertArabicBack:(NSString*)apfb;

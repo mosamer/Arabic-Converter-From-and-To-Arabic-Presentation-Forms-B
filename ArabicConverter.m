@@ -175,6 +175,18 @@ static BOOL IsTransparent(unsigned short c)
     return false;
 }
 
++ (ArabicConverter *)sharedConverter
+{
+    static ArabicConverter *instance = nil;
+    if(instance == nil)
+    {
+        static dispatch_once_t onceToken;
+        dispatch_once(&onceToken, ^{
+            instance = [[ArabicConverter alloc] init];
+        });
+    }
+    return instance;
+}
 //convert to Arabic Presentation Forms B
 -(NSString *)convertArabic:(NSString *)normal
 {
